@@ -126,21 +126,30 @@ class Home extends BaseController
         // $query = $builder->get();
         // SELECT last_name, COUNT(*) as total FROM authors GROUP BY last_name;
 
-        $data = [
-            'first_name' => 'RUFINO JOHN',
-            'last_name' => 'AGUILAR',
-            'email' => 'aguilarufino@gmail.com',
-            'birthdate' => '1990-01-01',
-            'added' => date('Y-m-d H:i:s')  
-        ];
+        // $data = [
+        //     'first_name' => 'RUFINO JOHN',
+        //     'last_name' => 'AGUILAR',
+        //     'email' => 'aguilarufino@gmail.com',
+        //     'birthdate' => '1990-01-01',
+        //     'added' => date('Y-m-d H:i:s')  
+        // ];
 
-        $builder->insert($data);
+        // $builder->insert($data);
 
-        $builder->select('*');
-        $builder->where('first_name','RUFINO JOHN');
-        $query = $builder->get();
-      
+        // $builder->select('*');
+        // $builder->where('first_name','RUFINO JOHN');
+        // $query = $builder->get();
 
+        // $data = [
+        //     'first_name' => 'RUFINO',
+        // ];
+
+        // $builder->where('id',101);
+        // $builder->update($data);
+
+        // $builder->select('*');
+        // $builder->where('id',101);
+        // $query = $builder->get();
 
 
         $result = $query->getResult();

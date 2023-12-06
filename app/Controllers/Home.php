@@ -116,6 +116,30 @@ class Home extends BaseController
         // $query = $builder->get();
         // SELECT * FROM authors WHERE first_name LIKE '%ama%' OR last_name LIKE '%ama%';
 
+        // $builder->select('*');
+        // $builder->orderBy('id','DESC'); //ASC
+        // $query = $builder->get();
+        // SELECT * FROM authors ORDER BY id DESC;
+
+        // $builder->select('last_name, COUNT(*) as total');
+        // $builder->groupBy('last_name'); //ASC
+        // $query = $builder->get();
+        // SELECT last_name, COUNT(*) as total FROM authors GROUP BY last_name;
+
+        $data = [
+            'first_name' => 'RUFINO JOHN',
+            'last_name' => 'AGUILAR',
+            'email' => 'aguilarufino@gmail.com',
+            'birthdate' => '1990-01-01',
+            'added' => date('Y-m-d H:i:s')  
+        ];
+
+        $builder->insert($data);
+
+        $builder->select('*');
+        $builder->where('first_name','RUFINO JOHN');
+        $query = $builder->get();
+      
 
 
 

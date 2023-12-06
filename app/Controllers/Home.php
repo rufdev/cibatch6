@@ -57,6 +57,30 @@ class Home extends BaseController
 
         // SELECT posts.*, CONCAT(authors.first_name, ' ', authors.last_name) as author_name FROM authors JOIN posts ON posts.author_id = authors.id;
 
+        // $builder->select('*');
+        // $builder->where('first_name','Luisa');
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE first_name = 'Luisa';
+
+        // $builder->select('*');
+        // $builder->where('first_name','Luisa');
+        // $builder->where('last_name','Hyatt');
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE first_name = 'Luisa' AND last_name = 'Hyatt';
+
+        // $builder->select('*');
+        // $builder->where('first_name','Luisa');
+        // $builder->orWhere('last_name','Hyatt');
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE first_name = 'Luisa' OR last_name = 'Hyatt';
+
+        // $builder->select('*');
+        // $builder->where('id',1);
+        // $builder->orWhere('id',3);
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE id = 1 OR id = 3;
+
+
 
         $result = $query->getResult();
         return json_encode($result);

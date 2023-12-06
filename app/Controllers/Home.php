@@ -23,11 +23,32 @@ class Home extends BaseController
         // $query = $builder->select('id,first_name,last_name, CONCAT(first_name, " ", last_name) as fullname')->get();
         // $query = $builder->select('id,first_name,last_name, CONCAT(first_name, " ", last_name) as fullname')->where('id', 1)->get();
 
-        $sql = "CONCAT(first_name, ' ', last_name) as fullname";
+        // $sql = "CONCAT(first_name, ' ', last_name) as fullname";
 
-        $builder->select(new RawSql($sql));
-        $query = $builder->get();
+        // $builder->select(new RawSql($sql));
+        // $query = $builder->get();
         // SELECT CONCAT(first_name, ' ', last_name) as fullname FROM authors;
+
+        // MAX, MIN, AVG, COUNT, SUM
+        // $builder->selectMax('id');
+        // $query = $builder->get();
+        // SELECT MAX(id) FROM authors;
+
+        // $builder->selectMin('id');
+        // $query = $builder->get();
+        // SELECT MIN(id) FROM authors;
+
+        // $builder->selectAvg('id');
+        // $query = $builder->get();
+        // SELECT AVG(id) FROM authors;
+
+        // $builder->selectSum('id');
+        // $query = $builder->get();
+        // SELECT SUM(id) FROM authors;
+
+        // $builder->selectCount('id');
+        // $query = $builder->get();
+        // SELECT COUNT(id) FROM authors;
 
 
 

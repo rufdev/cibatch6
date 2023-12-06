@@ -80,6 +80,32 @@ class Home extends BaseController
         // $query = $builder->get();
         // SELECT * FROM authors WHERE id = 1 OR id = 3;
 
+        // $builder->select('*');
+        // $builder->where('id >',1);
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE id > 1;
+
+        // $builder->select('*');
+        // $builder->where('id >=',1);
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE id >= 1;
+
+        // $builder->select('*');
+        // $builder->where('id <=',2);
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE id <= 2;
+
+        // $builder->select('*');
+        // $builder->whereIn('id',[1,2,3]);
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE id IN (1,2,3);
+
+        // $builder->select('*');
+        // $builder->whereNotIn('id',[1,2,3]);
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE id NOT IN (1,2,3);
+
+        
 
 
         $result = $query->getResult();

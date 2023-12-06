@@ -151,9 +151,17 @@ class Home extends BaseController
         // $builder->where('id',101);
         // $query = $builder->get();
 
+        // $builder->where('id',101);
+        // $builder->delete();
+        
 
-        $result = $query->getResult();
-        return json_encode($result);
+        // $builder->select('*');
+        // $builder->where('id',101);
+        // $query = $builder->get();
+
+
+        // $result = $query->getResult();
+        // return json_encode($result);
         
         
         

@@ -105,7 +105,18 @@ class Home extends BaseController
         // $query = $builder->get();
         // SELECT * FROM authors WHERE id NOT IN (1,2,3);
 
-        
+        // $builder->select('*');
+        // $builder->like('first_name','ama');
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE first_name LIKE '%ama%';
+
+        // $builder->select('*');
+        // $builder->like('first_name','art');
+        // $builder->orLike('last_name','art');
+        // $query = $builder->get();
+        // SELECT * FROM authors WHERE first_name LIKE '%ama%' OR last_name LIKE '%ama%';
+
+
 
 
         $result = $query->getResult();

@@ -51,6 +51,12 @@ class Home extends BaseController
         // SELECT COUNT(id) FROM authors;
 
 
+        // $builder->select("posts.*, CONCAT(authors.first_name, ' ', authors.last_name) as fullname");
+        // $builder->join("posts", "posts.author_id = authors.id");
+        // $query = $builder->get();
+
+        // SELECT posts.*, CONCAT(authors.first_name, ' ', authors.last_name) as author_name FROM authors JOIN posts ON posts.author_id = authors.id;
+
 
         $result = $query->getResult();
         return json_encode($result);

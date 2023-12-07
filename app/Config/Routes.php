@@ -13,7 +13,7 @@ $routes->set404Override();
 
 $routes->get('/', 'Home::index');
 
-$routes->resource('offices', ['controller'=>'OfficeController', 'except'=>'new,edit']);
+$routes->resource('offices', ['controller'=>'OfficeController', 'except'=>'new,edit', 'filter'=>'auth']);
 $routes->resource('tickets', ['controller'=>'TicketController', 'except'=>'new,edit']);
 
 service('auth')->routes($routes);

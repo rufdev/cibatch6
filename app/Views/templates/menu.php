@@ -54,19 +54,19 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="dashboard" class="nav-link">
+                    <a href="<?= base_url('dashboard')?>" class="nav-link">
                         <i class="fas fa-rocket nav-icon"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="tickets" class="nav-link">
+                    <a href="<?= base_url('tickets')?>" class="nav-link">
                         <i class="fas fa-file nav-icon"></i>
                         <p>Tickets</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="offices" class="nav-link">
+                    <a href="<?= base_url('offices')?>" class="nav-link">
                         <i class="fas fa-briefcase nav-icon"></i>
                         <p>Offices</p>
                     </a>

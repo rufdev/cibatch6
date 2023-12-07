@@ -13,7 +13,7 @@ class TicketController extends ResourceController
      */
     public function index()
     {
-        //
+        return view('pages/tickets');
     }
 
     public function show($id = null)

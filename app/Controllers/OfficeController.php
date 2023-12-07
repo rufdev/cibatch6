@@ -79,7 +79,7 @@ class OfficeController extends ResourceController
                 'message' => $officeModel->errors()
             );
 
-            return $this->response->setStatusCode(Response::HTTP_NOT_MODIFIED)->setJSON($response);
+            return $this->response->setStatusCode(Response::HTTP_BAD_REQUEST)->setJSON($response);
         }
 
         $officeModel->update($id,$data);

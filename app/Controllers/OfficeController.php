@@ -24,7 +24,12 @@ class OfficeController extends ResourceController
      */
     public function show($id = null)
     {
-        //
+        $officeModel = new \App\Models\Office();
+        $data = $officeModel->find($id);
+        if (!$data){
+            return $this->response->setStatusCode(Response::HTTP_NOT_FOUND);
+        }
+        return $this->response->setStatusCode(Response::HTTP_OK)->setJSON($data);
     }
 
 

@@ -72,7 +72,7 @@ class OfficeController extends ResourceController
     {
         $officeModel = new \App\Models\Office();
         $data = $this->request->getJSON();
-
+   
         if (!$officeModel->validate($data)){
             $response = array(
                 'status' => 'error',
@@ -98,6 +98,24 @@ class OfficeController extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        $officeModel = new \App\Models\Office();
+        $data = $officeModel->find($id);
+
+        if ($data){
+            $officeModel->delete($id);
+            $response = array(
+                'status' => 'success',
+                'message' => 'Office deleted successfully'
+            );
+
+            return $this->response->setStatusCode(Response::HTTP_OK)->setJSON($response);
+        }
+
+        $response = array(
+            'status' => 'error',
+            'message' => "Record Not Found"
+        );
+
+        return $this->response->setStatusCode(Response::HTTP_BAD_REQUEST)->setJSON($response);
     }
 }

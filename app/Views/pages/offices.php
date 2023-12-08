@@ -76,8 +76,6 @@
                                 </div>
                                
                             </div>
-                            <!-- /.card-body -->
-
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
@@ -95,6 +93,54 @@
 
 <?= $this->section('pagescript'); ?>
 <script>
+    $(function(){
+
+        $('form').submit(function(e){
+            e.preventDefault();
+
+            let formdata = $(this).serializeArray().reduce(function(obj, item) {
+                obj[item.name] = item.value;
+                return obj;
+            }, {});
+
+            let jsondata = JSON.stringify(formdata);
+
+            if (this.checkValidity()){
+                $.ajax({
+                    url: "<?= base_url('offices'); ?>",
+                    type: "POST",
+                    data: jsondata,
+                    success: function(response){
+                        $(document).Toasts('create', {
+                            class: 'bg-success',
+                            title: 'Success',
+                            body: JSON.stringify(response.message),
+                            autohide: true,
+                            delay : 3000
+                        });
+                        $('#modalID').modal('hide');
+                        table.ajax.reload();
+                    },
+                    error: function(response){
+                        let parsedresponse = JSON.parse(response.responseText);
+
+                        $(document).Toasts('create', {
+                            class: 'bg-danger',
+                            title: 'Error',
+                            body: JSON.stringify(parsedresponse.message),
+                            autohide: true,
+                            delay : 3000
+                        });
+                    }
+
+                });
+            }
+
+        });
+
+    });
+
+
     let table = $('#dataTable').DataTable({
         responsive: true,
         processing: true,
@@ -130,6 +176,20 @@
             `
             }
         ]
+    });
+
+    $(document).ready(function(){
+        'user strict';
+        let form = $(".needs-validation");
+        form.each(function(){
+            $(this).on("submit", function(e){
+                if (this.checkValidity() === false){
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                $(this).addClass("was-validated");
+            });
+        });
     });
 </script>
 <?= $this->endSection(); ?>

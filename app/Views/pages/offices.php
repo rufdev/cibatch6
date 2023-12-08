@@ -242,6 +242,38 @@
         });
     });
 
+    $(document).on('click', '#deleteBtn', function() {
+        let row = $(this).parents("tr")[0];
+        let id = table.row(row).data().id;
+
+        if (confirm("Are you sure you want to delete this office?")) {
+            $.ajax({
+                url: "<?= base_url('offices'); ?>/" + id,
+                type: "DELETE",
+                success: function(response) {
+                    $(document).Toasts('create', {
+                        class: 'bg-success',
+                        title: 'Success',
+                        body: JSON.stringify(response.message),
+                        autohide: true,
+                        delay: 3000
+                    });
+                },
+                error: function(response) {
+
+                    $(document).Toasts('create', {
+                        class: 'bg-danger',
+                        title: 'Error',
+                        body: JSON.stringify(response.message),
+                        autohide: true,
+                        delay: 3000
+                    });
+                }
+            });
+        }
+
+    });
+
     $(document).ready(function() {
         'user strict';
         let form = $(".needs-validation");
@@ -256,7 +288,7 @@
         });
     });
 
-    function clearform(){
+    function clearform() {
         $("#id").val("");
         $("#code").val("");
         $("#name").val("");

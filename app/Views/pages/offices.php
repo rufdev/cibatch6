@@ -258,6 +258,7 @@
                         autohide: true,
                         delay: 3000
                     });
+                    table.ajax.reload();
                 },
                 error: function(response) {
 

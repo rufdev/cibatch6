@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalID">Add Office</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalID" onclick="clearform()">Add Office</button>
             </div>
         </div>
         <div class="row">
@@ -255,5 +255,12 @@
             });
         });
     });
+
+    function clearform(){
+        $("#id").val("");
+        $("#code").val("");
+        $("#name").val("");
+        $("#email").val("");
+    }
 </script>
 <?= $this->endSection(); ?>

@@ -44,6 +44,7 @@
                     <div class="modal-body">
                         <form class="needs-validation" novalidate>
                             <div class="card-body">
+                            <input type="hidden" id="id" name="id" >
                                 <div class="form-group">
                                     <label for="code">Code</label>
                                     <input type="text" class="form-control" id="code" name="code" placeholder="Enter Office Code" required>
@@ -52,7 +53,7 @@
                                     </div>
                                     <div class="invalid-feedback">
                                         Please enter a valid office code.
-                                    </div>  
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Name</label>
@@ -62,7 +63,7 @@
                                     </div>
                                     <div class="invalid-feedback">
                                         Please enter a valid office name.
-                                    </div>  
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
@@ -72,9 +73,9 @@
                                     </div>
                                     <div class="invalid-feedback">
                                         Please enter a valid office email.
-                                    </div>  
+                                    </div>
                                 </div>
-                               
+
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -93,9 +94,9 @@
 
 <?= $this->section('pagescript'); ?>
 <script>
-    $(function(){
+    $(function() {
 
-        $('form').submit(function(e){
+        $('form').submit(function(e) {
             e.preventDefault();
 
             let formdata = $(this).serializeArray().reduce(function(obj, item) {
@@ -105,23 +106,23 @@
 
             let jsondata = JSON.stringify(formdata);
 
-            if (this.checkValidity()){
+            if (this.checkValidity()) {
                 $.ajax({
                     url: "<?= base_url('offices'); ?>",
                     type: "POST",
                     data: jsondata,
-                    success: function(response){
+                    success: function(response) {
                         $(document).Toasts('create', {
                             class: 'bg-success',
                             title: 'Success',
                             body: JSON.stringify(response.message),
                             autohide: true,
-                            delay : 3000
+                            delay: 3000
                         });
                         $('#modalID').modal('hide');
                         table.ajax.reload();
                     },
-                    error: function(response){
+                    error: function(response) {
                         let parsedresponse = JSON.parse(response.responseText);
 
                         $(document).Toasts('create', {
@@ -129,7 +130,7 @@
                             title: 'Error',
                             body: JSON.stringify(parsedresponse.message),
                             autohide: true,
-                            delay : 3000
+                            delay: 3000
                         });
                     }
 
@@ -178,12 +179,41 @@
         ]
     });
 
-    $(document).ready(function(){
+    $(document).on('click', '#editBtn', function() {
+        let row = $(this).parents("tr")[0];
+        let id = table.row(row).data().id;
+
+        $.ajax({
+            url: "<?= base_url('offices'); ?>/" + id,
+            type: "GET",
+            success: function(response) {
+                $('#modalID').modal('show');
+                $("#id").val(response.id);
+                $("#code").val(response.code);
+                $("#name").val(response.name);
+                $("#email").val(response.email);
+            },
+            error: function(response) {
+                let parsedresponse = JSON.parse(response.responseText);
+
+                $(document).Toasts('create', {
+                    class: 'bg-danger',
+                    title: 'Error',
+                    body: JSON.stringify(parsedresponse.message),
+                    autohide: true,
+                    delay: 3000
+                });
+            }
+
+        });
+    });
+
+    $(document).ready(function() {
         'user strict';
         let form = $(".needs-validation");
-        form.each(function(){
-            $(this).on("submit", function(e){
-                if (this.checkValidity() === false){
+        form.each(function() {
+            $(this).on("submit", function(e) {
+                if (this.checkValidity() === false) {
                     e.preventDefault();
                     e.stopPropagation();
                 }

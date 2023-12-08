@@ -94,7 +94,7 @@ class OfficeController extends ResourceController
     public function create()
     {
         $officeModel = new \App\Models\Office();
-        $data = $this->request->getPost();
+        $data = $this->request->getJSON();
 
         if (!$officeModel->validate($data)){
             $response = array(

@@ -22,7 +22,7 @@ class TicketController extends ResourceController
             'HIGH',
             'CRITICAL'
         ];
-        $data['state'] = [
+        $data['state_list'] = [
             'PENDING',
             'PROCESSING',
             'RESOLVED',

@@ -184,7 +184,7 @@
         new Chart(barChartCanvas1, {
             type: 'bar',
             data: barChartData1,
-            option: {
+            options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 datasetFill: false,
@@ -202,7 +202,7 @@
         new Chart(barChartCanvas2, {
             type: 'bar',
             data: barChartData2,
-            option: {
+            options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 datasetFill: false,

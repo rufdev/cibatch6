@@ -15,6 +15,9 @@ $routes->get('/', 'Home::index');
 
 $routes->get('dashboard', 'DashboardController::index');
 
+$routes->post('offices/list', 'OfficeController::list');
+$routes->post('tickets/list', 'TicketController::list');
+
 $routes->resource('offices', ['controller'=>'OfficeController', 'except'=>'new,edit', 'filter'=>'auth']);
 $routes->resource('tickets', ['controller'=>'TicketController', 'except'=>'new,edit']);
 

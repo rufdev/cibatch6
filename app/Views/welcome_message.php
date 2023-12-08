@@ -250,7 +250,11 @@
                 </li>
                 <li class="menu-item hidden"><a href="#">Home</a></li>
                 <?php if (auth()->loggedIn()) : ?>
-                    <li class="menu-item"><a href="dashboard">Dashboard</a></li>
+                    <?php if (auth()->user()->inGroup('admin')) : ?>
+                        <li class="menu-item"><a href="dashboard">Dashboard</a></li>
+                    <?php else : ?>
+                        <li class="menu-item"><a href="tickets">Ticket Management</a></li>
+                    <?php endif; ?>
                     <li class="menu-item"><a href="logout">Logout</a></li>
                 <?php else : ?>
                     <li class="menu-item"><a href="login">Login</a></li>

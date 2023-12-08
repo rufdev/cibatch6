@@ -38,8 +38,7 @@ class Ticket extends Model
         'office_id' => 'required',
         'state' => 'required',
         'severity' => 'required',
-        'description' => 'required|min_length[3]|max_length[255]',
-        'remarks' => 'required|min_length[3]|max_length[255]'
+        'description' => 'required|min_length[3]|max_length[255]'
     ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;

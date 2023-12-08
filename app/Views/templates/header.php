@@ -23,4 +23,9 @@
   <link rel="stylesheet" href="<?= base_url()?>public/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?= base_url()?>public/plugins/summernote/summernote-bs4.min.css">
+  
+   <!-- DataTables -->
+   <link rel="stylesheet" href="<?= base_url()?>public/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url()?>public/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url()?>public/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
